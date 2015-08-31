@@ -33,7 +33,11 @@
 }
 
 - (id)transformedValue:(id)value {
-	return self.mappingDictionary[value];
+    if ([self.mappingDictionary objectForKey:value]) {
+        return self.mappingDictionary[value];
+    } else {
+        return value;
+    }
 }
 
 - (id)reverseTransformedValue:(id)value {
