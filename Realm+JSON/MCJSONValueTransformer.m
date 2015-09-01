@@ -41,7 +41,11 @@
 }
 
 - (id)reverseTransformedValue:(id)value {
-	return [[self.mappingDictionary allKeysForObject:value] firstObject];
+    NSArray *allKeys = [self.mappingDictionary allKeysForObject:value];
+    if ([allKeys count]) {
+        return [allKeys firstObject];
+    } else {
+        return value;
+    }
 }
-
 @end
